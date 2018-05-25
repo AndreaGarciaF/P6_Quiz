@@ -178,7 +178,7 @@ exports.randomplay = (req, res, next) => {
             where: whereOpt,
             offset: Math.floor(Math.random() * count),
             limit: 1
-        })
+        });
         //let id = Math.floor(Math.random()*quizzes.length);
         //let quiz = quizzes[id];
     })
@@ -216,7 +216,7 @@ exports.randomcheck = (req, res, next) => {
         req.session.randomPlay = req.session.randomPlay.concat(quiz.id);
     } else {
         req.session.randomPlay = [];
-    };
+    }
     res.render('quizzes/random_result', {
         result,
         answer,
